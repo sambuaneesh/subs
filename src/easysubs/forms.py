@@ -32,6 +32,7 @@ class Form(ModalScreen[dict[str, str] | None]):
         self.fields = fields
         self.validate_values = validate
         self.focus_field = focus or fields[0][0]
+        self.AUTO_FOCUS = f"#{self.focus_field}"
 
     def compose(self) -> ComposeResult:
         with Vertical(id="dialog"):
@@ -43,9 +44,6 @@ class Form(ModalScreen[dict[str, str] | None]):
             yield Static("", id="form-error")
             yield Button("Continue", id="continue", variant="success")
             yield Static("Enter to continue · Esc to go back", classes="hint")
-
-    def on_mount(self):
-        self.query_one(f"#{self.focus_field}", Input).focus()
 
     @on(Input.Submitted)
     def next_field(self, event):

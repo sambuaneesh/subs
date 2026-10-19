@@ -23,7 +23,7 @@ yay -S subs
 Or install with Python 3.11+ and [uv](https://docs.astral.sh/uv/):
 
 ```sh
-uv tool install git+https://github.com/sambuaneesh/subs.git@v0.1.0
+uv tool install git+https://github.com/sambuaneesh/subs.git@v0.1.1
 ```
 
 Optional `ffmpeg` / `ffprobe` enable extraction of existing text subtitles from local videos. The AUR package uses system Python dependencies; `python-pysubs2` is also available from the AUR.

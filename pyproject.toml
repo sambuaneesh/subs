@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "easysubs-cli"
-version = "0.1.0"
+version = "0.1.1"
 description = "One command for subtitles: fuzzy titles, release matching, files, folders and URLs."
 readme = "README.md"
 license = "MIT"

@@ -25,10 +25,13 @@ def result(query, language="en"):
 
 
 async def wait_for(pilot, condition):
-    for _ in range(40):
+    for _ in range(100):
         await pilot.pause(0.03)
         if condition():
-            return
+            # A pushed screen exists before its children have completed layout/autofocus.
+            await pilot.pause(0.1)
+            if condition():
+                return
     assert condition()
 
 
@@ -52,7 +55,8 @@ def test_detected_series_asks_for_season_and_episode(monkeypatch):
             assert queries == []  # never search a guessed/default episode
             app.screen.query_one("#season", Input).value = "2"
             app.screen.query_one("#episode", Input).value = "3"
-            await pilot.click("#continue")
+            app.screen.query_one("#episode", Input).focus()
+            await pilot.press("enter")
             await wait_for(pilot, lambda: app.mode == "subtitles")
             assert queries == [(2, 3)]
             assert app.media.kind == "series"
