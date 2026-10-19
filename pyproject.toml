@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "easysubs-cli"
+version = "0.1.0"
+description = "One command for subtitles: fuzzy titles, release matching, files, folders and URLs."
+readme = "README.md"
+license = "MIT"
+authors = [{name = "Aneesh Sambu", email = "sambu.aneesh@research.iiit.ac.in"}]
+requires-python = ">=3.11"
+dependencies = [
+  "httpx>=0.27,<1", "rapidfuzz>=3,<4", "rich>=13,<16",
+  "guessit>=3.8,<5", "babelfish>=0.6,<1", "beautifulsoup4>=4.12,<5",
+  "textual>=0.89,<9", "pysubs2>=1.7,<2", "charset-normalizer>=3,<4", "yt-dlp>=2025.1"
+]
+
+[project.urls]
+Homepage = "https://github.com/sambuaneesh/subs"
+Repository = "https://github.com/sambuaneesh/subs"
+Issues = "https://github.com/sambuaneesh/subs/issues"
+
+[project.scripts]
+subs = "easysubs.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/easysubs"]
+
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.12"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 110
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]

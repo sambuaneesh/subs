@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+/packaging/aur/src/
+/packaging/aur/pkg/
+/packaging/aur/*.tar.*
+/packaging/aur/*.log
