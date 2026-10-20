@@ -12,6 +12,8 @@ subs "Arrival.2016.1080p.BluRay.x264-SPARKS.mkv"
 
 Use ↑/↓ to move, **Enter** or **d** to download, **/** to fuzzy-filter, **t** to correct the title, **e** to change the episode, **l** to change language, and **Esc** to go back. The selected release's match details and destination are shown below the results. A successful download closes the picker and prints the saved path.
 
+![Subtitle picker](artifacts/tui-preview.svg)
+
 ## Install
 
 On Arch Linux / Omarchy:
